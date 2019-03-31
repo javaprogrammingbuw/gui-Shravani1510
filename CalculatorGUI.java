@@ -25,8 +25,7 @@ public class CalculatorGUI extends JFrame {
 		testbtn = new JButton("test");
 		testbtn.setToolTipText("Press me");
 		testbtn.addActionListener((event) ->  displayTest(Double.parseDouble(tf1.getText())));
-		
-		
+			
 		addbtn = new JButton("+");
 		addbtn.setToolTipText("+");
 		addbtn.setActionCommand("+");
@@ -95,19 +94,19 @@ public class CalculatorGUI extends JFrame {
 	    setTitle("calculator");
 	    createFlowLayout();
 	       //Position in screen center
-	     setLocationRelativeTo(null);
+	    setLocationRelativeTo(null);
 	        //Close Application when window is closed
-	     setDefaultCloseOperation(EXIT_ON_CLOSE);
+	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-	
-	public void  press (String name) {
-		tf1.setText(tf1.getText()+name);
-	}
-	
+
 //	private void onSubmit() {
 //		// TODO Auto-generated method stub
 //		 tf2.setText("You entered: " + tf1.getText());
 //	}
+	
+	public void  press (String name) {
+		tf1.setText(tf1.getText()+name);
+	}
 	
 	private double getResult(double val) {
 		tf1.setText("");
@@ -163,7 +162,6 @@ public class CalculatorGUI extends JFrame {
         pane3.setSize(300, 300);
         
         pack();
-		
 	}
 	
 	private void addition(double present) {

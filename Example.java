@@ -23,7 +23,7 @@ public class Example extends JFrame {
 
         //new Button
         quitButton = new JButton("Quit");
-        //set tooltip text
+        //set tool tip text
         quitButton.setToolTipText("Want to quit?");
 
         //ActionListener (Quit on Button Press)
