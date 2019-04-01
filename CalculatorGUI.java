@@ -16,6 +16,9 @@ public class CalculatorGUI extends JFrame {
 		myUI();
 	}
 
+	//Clear button missing
+	//How to get the result of an equation? -> pressing "test" gave me an error.
+
 	public void myUI() {
 		
 		quitbtn = new JButton("Quit");
