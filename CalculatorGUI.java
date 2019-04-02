@@ -10,7 +10,7 @@ public class CalculatorGUI extends JFrame {
 	private JPanel pane, pane1, pane2,pane3;
 	private Font font = new Font("SansSerif", Font.PLAIN, 20);
 	private Mode presentmode;
-	private double present=0;
+	private double present;
 	private enum Mode{PLUS,MINUS,TIMES,DIVIDED;};
 	public CalculatorGUI() {
 		myUI();
@@ -116,7 +116,7 @@ public class CalculatorGUI extends JFrame {
 	}
 	
 	public void onClear() {
-		tf1.setText("");
+		tf2.setText("");
 	}
 	
 	private double getResult(double val) {
@@ -133,7 +133,10 @@ public class CalculatorGUI extends JFrame {
 		   default:
 			   return -1;
 		}
+		
 	}
+	
+
 	
 	private void displayTest(double val) {
 		tf2.setText(String.valueOf(getResult(val)));
