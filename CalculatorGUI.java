@@ -5,7 +5,7 @@ public class CalculatorGUI extends JFrame {
 	
 	private JButton zerobtn, onebtn, twobtn, threebtn, fourbtn,
 	                fivebtn,sixbtn,sevenbtn,eightbtn,ninebtn;
-	private JButton addbtn,subbtn,mulbtn,dividebtn,quitbtn, testbtn;
+	private JButton addbtn,subbtn,mulbtn,dividebtn,quitbtn, testbtn, clearbtn;
 	private JTextField tf1, tf2;
 	private JPanel pane, pane1, pane2,pane3;
 	private Font font = new Font("SansSerif", Font.PLAIN, 20);
@@ -21,6 +21,10 @@ public class CalculatorGUI extends JFrame {
 		quitbtn = new JButton("Quit");
 		quitbtn.setToolTipText("Want to quit?");
 		quitbtn.addActionListener((event) -> System.exit(0));
+		
+		clearbtn = new JButton("clear");
+		clearbtn.setToolTipText("Want to clear?");
+		clearbtn.addActionListener((event) -> onClear());
 		
 		testbtn = new JButton("test");
 		testbtn.setToolTipText("Press me");
@@ -108,6 +112,10 @@ public class CalculatorGUI extends JFrame {
 		tf1.setText(tf1.getText()+name);
 	}
 	
+	public void onClear() {
+		tf1.setText("");
+	}
+	
 	private double getResult(double val) {
 		tf1.setText("");
 		switch(presentmode) {
@@ -135,6 +143,7 @@ public class CalculatorGUI extends JFrame {
         pane.add(testbtn);
         pane.add(tf2);
         pane.add(quitbtn);
+        pane.add(clearbtn);
         pane.setLayout(new FlowLayout());
         pane.setSize(300, 300);
         
@@ -195,3 +204,5 @@ public class CalculatorGUI extends JFrame {
 		});
 	}
 }
+
+
