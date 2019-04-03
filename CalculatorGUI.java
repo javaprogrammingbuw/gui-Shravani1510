@@ -31,7 +31,7 @@ public class CalculatorGUI extends JFrame {
 		
 		testbtn = new JButton("test");
 		testbtn.setToolTipText("Press me");
-		testbtn.addActionListener((event) ->  displayTest(Double.parseDouble(tf1.getText())));
+		testbtn.addActionListener((event) ->  displayTest(tf1.getText()));
 			
 		addbtn = new JButton("+");
 		addbtn.setToolTipText("+");
@@ -164,8 +164,10 @@ public class CalculatorGUI extends JFrame {
 		}
 	}
 	
-	private void displayTest(double val) {
-		tf2.setText(String.valueOf(getResult(val)));
+	private void displayTest(String input) {
+		if(!input.equals("             ")){
+			tf2.setText(String.valueOf(getResult(Double.parseDouble(input))));
+		}
 	}
 	
 	private void createFlowLayout() {
