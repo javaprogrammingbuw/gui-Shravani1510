@@ -10,7 +10,7 @@ public class CalculatorGUI extends JFrame {
 	private JPanel pane, pane1, pane2,pane3;
 	private Font font = new Font("SansSerif", Font.PLAIN, 20);
 	private Mode presentmode;
-	private double present;
+	public double present;
 	private enum Mode{PLUS,MINUS,TIMES,DIVIDED;};
 	public CalculatorGUI() {
 		myUI();
@@ -92,11 +92,11 @@ public class CalculatorGUI extends JFrame {
 		 
 		tf1= new JTextField();
 	    tf1.setFont(font);
-	    tf1.setText("         ");
+	    tf1.setText("             ");
 	     
 	    tf2 = new JTextField();
 	    tf2.setFont(font);
-	    tf2.setText("        ");
+	    tf2.setText("            ");
 
 	    setTitle("calculator");
 	    createFlowLayout();
@@ -117,26 +117,52 @@ public class CalculatorGUI extends JFrame {
 	
 	public void onClear() {
 		tf2.setText("");
+		tf1.setText("");
 	}
 	
-	private double getResult(double val) {
-		tf1.setText("");
+	public double getResult(double val) {
+		String equation = tf1.getText();
+		String temp = "";
+		double r;
+		for(char c :equation.toCharArray()) {
+			if(Character.isDigit(c)) {
+				temp += c;
+			}
+			else {
+				try {
+					present = Double.parseDouble(temp);
+				}
+				catch(NumberFormatException e) {
+					e.printStackTrace();
+					tf1.setText("Invalid input");
+				}
+				temp = "";
+			}
+		}
+		try {
+			val = Double.parseDouble(temp);
+		}
+		catch(NumberFormatException e) {
+			e.printStackTrace();
+			tf1.setText("Invalid input");
+		}
 		switch(presentmode) {
 		  case PLUS:
-			  return present + val;
+			  r = present + val;
+			  return r;
 		  case MINUS:
-			  return  present- val;
+			  r = present - val;
+			  return  r;
 		  case TIMES:
-			  return present * val;
+			  r = present * val;
+			  return r;
 		  case DIVIDED:
-			  return present /val;
+			  r = present /val;
+			  return r;
 		   default:
 			   return -1;
 		}
-		
 	}
-	
-
 	
 	private void displayTest(double val) {
 		tf2.setText(String.valueOf(getResult(val)));
